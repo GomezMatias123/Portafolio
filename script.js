@@ -22,7 +22,7 @@
     const themes = {
     classic:{ver:"v.CLARO",eye:"Desarrollador de software",
         desc:"// Estética clásica — mundo etéreo, glitch, cian sobre blanco",
-        lead:"Desarrollador de software con experiencia en C#/.NET, PHP y JavaScript. Elabore aplicaciones de escritorio, sitios web completos para clientes (backend, frontend y despliegue). Soy un estudiante avanzado de la carrera Licenciatura en Sistemas de la información, con formación en base de datos, programación funcional y programación orientada a objetos.",freq:660},
+        lead:"Desarrollador de software con experiencia en C#/.NET, PHP y JavaScript. Elabore aplicaciones de escritorio, sitios web completos para clientes (backend, frontend y despliegue). Soy un estudiante avanzado de la carrera Licenciatura en Sistemas de la información, con formación en base de datos, programación funcional y programación orientada a objetos. <br> +2 años de experiencia ",freq:660},
     abstergo:{ver:"v.OSCURO",eye:"Desarrollador de software", freq:440},
     };
 
@@ -136,33 +136,48 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
     setTimeout(()=>el.classList.remove('flicker'),280);
     }
 
+    const iconSun = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+    <circle cx="12" cy="12" r="4.2"></circle>
+    <path d="M12 2.5v2.4M12 19.1v2.4M4.6 4.6l1.7 1.7M17.7 17.7l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.6 19.4l1.7-1.7M17.7 6.3l1.7-1.7"></path>
+    </svg>`;
+
+    const iconMoon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+    <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z"></path>
+    </svg>`;
+
+    const modeIcon = document.getElementById('modeIcon');
+
+    function updateModeUI(dark){
+    modeToggle.setAttribute('aria-pressed', dark);
+    modeToggle.setAttribute('aria-label', dark ? 'Modo oscuro' : 'Modo claro');
+    modeIcon.innerHTML = dark ? iconMoon : iconSun;
+    }
     const flash=document.getElementById('flash');
-    let currentTheme='classic';
+    let currentTheme='abstergo';
     function setTheme(t){
     const r=document.documentElement.style;
     const map={classic:'t1',abstergo:'t2'};
     const p=map[t];
     ['bg','bg2','ink','accent','accent2','line','panel'].forEach(k=>
-        r.setProperty(`--${k}`,getComputedStyle(document.documentElement).getPropertyValue(`--${p}-${k}`)));
+    r.setProperty(`--${k}`,getComputedStyle(document.documentElement).getPropertyValue(`--${p}-${k}`)));
     document.body.className='theme-'+t;
     document.getElementById('verLabel').textContent=themes[t].ver;
     document.getElementById('eyebrow').innerHTML=themes[t].eye;
     flash.classList.add('on');setTimeout(()=>flash.classList.remove('on'),90);
     beep(themes[t].freq*0.75,0.12);
     }
-    const modeToggle=document.getElementById('modeToggle');
     const modeLabel=document.getElementById('modeLabel');
     modeToggle.addEventListener('click',()=>{
     currentTheme = currentTheme==='classic' ? 'abstergo':'classic';
     const dark = currentTheme==='abstergo';
-    modeToggle.setAttribute('aria-pressed',dark);
-    modeLabel.textContent = dark ? 'Modo oscuro' : 'Modo claro';
-    setTheme(currentTheme);
+    updateModeUI(dark);
+    setTheme(currentTheme)
     });
     document.getElementById('soundBtn').addEventListener('click',function(){
-    soundOn=!soundOn;this.textContent='♪ Sonido: '+(soundOn?'ON':'OFF');
+    soundOn=!soundOn;this.textContent='♪: '+(soundOn?'ON':'OFF');
     this.classList.toggle('active',soundOn);
     if(soundOn){if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();beep(660);}
     });
 
-    setTheme('classic');
+updateModeUI(currentTheme==='abstergo');
+setTheme(currentTheme);

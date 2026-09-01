@@ -56,6 +56,9 @@
   .mode-toggle .thumb{position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;
     background:var(--accent);transition:transform .3s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 8px var(--accent)}
   .mode-toggle[aria-pressed="true"] .thumb{transform:translateX(16px)}
+  .mode-icon{width:16px;height:16px;display:flex;align-items:center;justify-content:center;
+  color:var(--ink);transition:color .3s}
+  .mode-icon svg{width:100%;height:100%}
   .sound-btn{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
     padding:8px 12px;cursor:pointer;background:transparent;color:var(--ink);border:1px solid var(--line);
     border-radius:2px;transition:all .25s;opacity:.6}
@@ -138,11 +141,9 @@
   .sec-head h2{font-size:clamp(22px,4vw,34px);font-weight:600;letter-spacing:.02em}
   .sec-head .meta{font-family:var(--mono);font-size:12px;opacity:.55;letter-spacing:.1em}
 
-  .mem-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+  .mem-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
   .mem-formacion{display:grid;gap:18px}
-  .mem{position:relative;border:1px solid var(--line);background:var(--panel);
-    padding:22px;transition:transform .3s,border-color .3s;
-    min-height:170px;display:flex;flex-direction:column;justify-content:space-between}
+  .mem{position:relative;border:1px solid var(--line);background:var(--panel);cursor: pointer;padding:22px;transition:transform .3s,border-color .3;min-height:170px;display:flex;flex-direction:column;justify-content:space-between}
   .mem:hover{transform:translateY(-4px);border-color:var(--accent)}
   .mem .corner{position:absolute;width:14px;height:14px;border:1px solid var(--accent);opacity:.6;z-index:3}
   .mem .corner.tl{top:8px;left:8px;border-right:0;border-bottom:0}
@@ -217,6 +218,6 @@
 @media (max-width: 460px) {
   .mem-formacion{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
   .content-formacion{ position:relative;border:1px solid var(--line);background:var(--panel);
-    padding:22px;transition:transform .3s,border-color .3s; min-height:170px;display:flex;flex-direction:column;justify-content:space-between
+    padding:22px;transition:transform .3s, border-color .3s; min-height:170px; gap: 10px; display:flex;flex-direction:column; justify-content:space-between 
   }
 }
