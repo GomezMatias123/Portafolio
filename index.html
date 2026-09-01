@@ -2,7 +2,8 @@
 <html lang="es-AR">
 <head>
 <meta charset="UTF-8">
-<meta name="Desarrollador" content="Portfolio de Matías Gómez, desarrollador de software especializado en C#/.NET, PHP y JavaScript. Proyectos de gestión, sitios web y aplicaciones de escritorio.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio de Matías Gómez, desarrollador de software especializado en C#/.NET, PHP y JavaScript. Proyectos de gestión, sitios web y aplicaciones de escritorio.">
 <title>Matías Gómez — Desarrollador de Software</title>
 <link rel="icon" href="favicon.ico">
 <link rel="stylesheet" href="Style.css">
@@ -35,16 +36,17 @@
       <button class="sound-btn" id="soundBtn" aria-pressed="false" aria-label="Sonido desactivado">
         <span class="sound-icon" id="soundIcon"></span>
       </button>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch to English">EN</button>
     </div>
   </header>
 
   <section class="hero">
     <div class="hero-top">
+      <div class="avatar-col">
       <div class="avatar-wrap pixel-target">
         <span class="corner tl"></span><span class="corner tr"></span>
         <span class="corner bl"></span><span class="corner br"></span>
         <div class="avatar-core pixel-core">
-          <!-- Reemplazá el src de abajo por la ruta a tu foto real, p.ej. "foto.jpg" -->
           <img class="avatar-img" src="IMG/foto_perfil.jpeg" alt="Foto de perfil"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="avatar-fallback">
@@ -55,10 +57,18 @@
           </div>
         </div>
       </div>
+    <ul class="info-chips">
+    <li data-i18n="chipEdad">27 años</li>
+    <li data-i18n="chipUbi">Corrientes, Argentina</li>
+    <li data-i18n="chipRemoto">Disponible remoto — cualquier huso horario</li>
+    <li data-i18n="chipIdiomas">Español e inglés fluidos</li>
+  </ul>
+  </div>
       <div class="hero-text">
         <div class="eyebrow" id="eyebrow"></div>
         <h1><span class="glitch" data-text="Gomez Matias Nicolas" id="glitchName">Gomez Matias Nicolas</span></h1>
         <p class="lead" id="lead">Desarrollador de software con experiencia en C#/.NET, PHP y JavaScript. Elabore aplicaciones de escritorio, sitios web completos para clientes (backend, frontend y despliegue). Soy un estudiante avanzado de la carrera Licenciatura en Sistemas de la información, con formación en base de datos, programación funcional y programación orientada a objetos. <br><br> +2 años de experiencia |  +7 proyectos en producción</p>
+    </div>
     </div>
   </section>
 
