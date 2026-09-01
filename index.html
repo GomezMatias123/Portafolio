@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio de Matías Gómez</title>
+<link rel="stylesheet" href="Style.css">
+</head>
+<body class="theme-classic">
+  <div class="grid-overlay"></div>
+  <div class="scanline"></div>
+  <div class="flash" id="flash"></div>
+
+  <header>
+    <div class="brand"><span class="dot"></span> Portfolio web <small id="verLabel">v.CLARO</small></div>
+    <div class="switcher">
+      <button class="mode-toggle" id="modeToggle" aria-pressed="false">
+        <span class="track"><span class="thumb"></span></span>
+        <span id="modeLabel">Modo claro</span>
+      </button>
+      <button class="sound-btn" id="soundBtn">♪ Sonido: OFF</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-top">
+      <div class="avatar-wrap pixel-target">
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <div class="avatar-core pixel-core">
+          <!-- Reemplazá el src de abajo por la ruta a tu foto real, p.ej. "foto.jpg" -->
+          <img class="avatar-img" src="IMG/foto_perfil.jpeg" alt="Foto de perfil"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="avatar-fallback">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+              <circle cx="12" cy="8" r="4"></circle>
+              <path d="M4 20c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="hero-text">
+        <div class="eyebrow" id="eyebrow"></div>
+        <h1><span class="glitch" data-text="Gomez Matias Nicolas" id="glitchName">Gomez Matias Nicolas</span></h1>
+        <p class="lead" id="lead">Desarrollador de software con experiencia en C#/.NET, PHP y JavaScript. Elabore aplicaciones de escritorio, sitios web completos para clientes (backend, frontend y despliegue). Soy un estudiante avanzado de la carrera Licenciatura en Sistemas de la información, con formación en base de datos, programación funcional y programación orientada a objetos.</p>
+    </div>
+  </section>
+
+  <section class="memories">
+    <div class="sec-head">
+      <nav class="tabs" id="tabs">
+        <button class="tab-btn active" data-view="proyectos">Proyectos</button>
+        <button class="tab-btn" data-view="formacion">Formacion</button>
+        <button class="tab-btn" data-view="cv">CV</button>
+      </nav>
+      <span class="meta" id="counter"> 5 registros ·</span>
+    </div>
+
+    <div class="view-stage">
+      <div class="view-panel active" id="view-proyectos">
+        <div class="mem-grid" id="grid"></div>
+      </div>
+
+    <div class="view-panel" id="view-formacion">
+      <div class="mem-formacion" id="gridFormacion"></div>
+    </div>
+
+    <div class="view-panel" id="view-cv">
+      <div class="cv-box">
+        <embed src="IMG/Curriculum Vitae_Gomez_Matias.pdf" type="application/pdf" class="cv-preview">
+        <a class="cv-dowload" href="IMG/Curriculum Vitae_Gomez_Matias.pdf" download = "Matias_Gomez.PDF">
+          <img " src="IMG/icon_pdf.png" title="Descargar CV pdf" alt="Logo de pdf" target="_blank">
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
