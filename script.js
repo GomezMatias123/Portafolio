@@ -20,10 +20,8 @@
     ];
 
     const themes = {
-    classic:{ver:"v.CLARO",eye:"Desarrollador de software",
-        desc:"// Estética clásica — mundo etéreo, glitch, cian sobre blanco",
-        lead:"Desarrollador de software con experiencia en C#/.NET, PHP y JavaScript. Elabore aplicaciones de escritorio, sitios web completos para clientes (backend, frontend y despliegue). Soy un estudiante avanzado de la carrera Licenciatura en Sistemas de la información, con formación en base de datos, programación funcional y programación orientada a objetos. <br> +2 años de experiencia ",freq:660},
-    abstergo:{ver:"v.OSCURO",eye:"Desarrollador de software", freq:440},
+    classic:{eye:"Desarrollador de software"},
+    abstergo:{eye:"Desarrollador de software", freq:440},
     };
 
     const grid = document.getElementById('grid');
@@ -161,20 +159,37 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
     ['bg','bg2','ink','accent','accent2','line','panel'].forEach(k=>
     r.setProperty(`--${k}`,getComputedStyle(document.documentElement).getPropertyValue(`--${p}-${k}`)));
     document.body.className='theme-'+t;
-    document.getElementById('verLabel').textContent=themes[t].ver;
     document.getElementById('eyebrow').innerHTML=themes[t].eye;
     flash.classList.add('on');setTimeout(()=>flash.classList.remove('on'),90);
     beep(themes[t].freq*0.75,0.12);
     }
-    const modeLabel=document.getElementById('modeLabel');
     modeToggle.addEventListener('click',()=>{
     currentTheme = currentTheme==='classic' ? 'abstergo':'classic';
     const dark = currentTheme==='abstergo';
     updateModeUI(dark);
     setTheme(currentTheme)
     });
+    const iconNote = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <path d="M9 17V5l10-2v12" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="7" cy="17" r="2.2"/>
+    <circle cx="17" cy="15" r="2.2"/>
+    </svg>`;
+
+    const iconNoteOff = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <path d="M9 17V5l10-2v12" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="7" cy="17" r="2.2"/>
+    <circle cx="17" cy="15" r="2.2"/>
+    <path d="M3 3 L21 21" stroke-linecap="round"/>
+    </svg>`;
+
+    const soundIcon = document.getElementById('soundIcon');
+    soundIcon.innerHTML = iconNoteOff;
+
     document.getElementById('soundBtn').addEventListener('click',function(){
-    soundOn=!soundOn;this.textContent='♪: '+(soundOn?'ON':'OFF');
+    soundOn=!soundOn;
+    soundIcon.innerHTML = soundOn ? iconNote : iconNoteOff;
+    this.setAttribute('aria-pressed', soundOn);
+    this.setAttribute('aria-label', soundOn ? 'Sonido activado' : 'Sonido desactivado');
     this.classList.toggle('active',soundOn);
     if(soundOn){if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();beep(660);}
     });
