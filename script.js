@@ -20,9 +20,53 @@
     ];
 
     const themes = {
-    classic:{eye:"Desarrollador de software"},
+    classic:{eye:"Desarrollador de software"}, 
     abstergo:{eye:"Desarrollador de software", freq:440},
     };
+
+    let currentLang = 'es';
+
+const i18n = {
+es: {
+    eyebrow: "Desarrollador de software",
+    lead: "Desarrollador de software con experiencia en C#/.NET, PHP y JavaScript. Elaboré aplicaciones de escritorio, sitios web completos para clientes (backend, frontend y despliegue). Soy un estudiante avanzado de la carrera Licenciatura en Sistemas de la Información, con formación en bases de datos, programación funcional y programación orientada a objetos.",
+    tabProyectos: "Proyectos", tabFormacion: "Formación", tabCV: "Curriculum Vitae",
+    counter: " 5 registros ·",
+    verRepo:"Ver repositorio", entrarSitio:"Entrar al sitio",
+    chipEdad: "27 años", chipUbi: "Corrientes, Argentina",
+    chipRemoto: "Disponible remoto — cualquier huso horario",
+    chipIdiomas: "Español e inglés fluidos"
+    },
+en: {
+    eyebrow: "Software developer",
+    lead: "Software developer with experience in C#/.NET, PHP and JavaScript. I've built desktop applications and full websites for clients (backend, frontend and deployment). I'm an advanced student of the Information Systems degree, with training in databases, functional programming and object-oriented programming.",
+    tabProyectos: "Projects", tabFormacion: "Education", tabCV: "Resume",
+    counter: " 5 records ·",
+    verRepo:"View repository", entrarSitio:"Visit site",
+    chipEdad: "27 years old", chipUbi: "Corrientes, Argentina",
+    chipRemoto: "Available remote — any timezone",
+    chipIdiomas: "Fluent in Spanish and English"
+    }
+};
+
+const langToggle = document.getElementById('langToggle');
+
+function applyLang(lang){
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.dataset.i18n;
+    if(i18n[lang][key] !== undefined) el.textContent = i18n[lang][key];
+    });
+    langToggle.textContent = lang === 'es' ? 'EN' : 'ES';
+    langToggle.setAttribute('aria-label', lang==='es' ? 'Switch to English' : 'Cambiar a español');
+}
+
+langToggle.addEventListener('click', ()=>{
+    applyLang(currentLang === 'es' ? 'en' : 'es');
+    const t = document.body.className.replace('theme-','');
+    beep(themes[t].freq);
+});
 
     const grid = document.getElementById('grid');
     projects.forEach((p)=>{
@@ -45,14 +89,14 @@
     <path d="M6 8.2V15.8"></path>
     <path d="M6 12c0-3 3-4.5 6-4.8h3.5"></path>
     </svg>
-    Ver repositorio</a>` : ''}
+    <span data-i18n="verRepo">Ver repositorio</span></a>` : ''}
     ${p.live ? `<a href="${p.live}" target="_blank" rel="noopener">
     <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
     <path d="M14 4h6v6"></path>
     <path d="M20 4 10 14"></path>
     <path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"></path>
     </svg>
-    Entrar al sitio</a>` : ''}
+    <span data-i18n="entrarSitio">Entrar al sitio</span></a>` : ''}
     </div>`;
     el.addEventListener('mouseenter',()=>resync(el));
     el.addEventListener('click',(e)=>{
@@ -159,7 +203,6 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
     ['bg','bg2','ink','accent','accent2','line','panel'].forEach(k=>
     r.setProperty(`--${k}`,getComputedStyle(document.documentElement).getPropertyValue(`--${p}-${k}`)));
     document.body.className='theme-'+t;
-    document.getElementById('eyebrow').innerHTML=themes[t].eye;
     flash.classList.add('on');setTimeout(()=>flash.classList.remove('on'),90);
     beep(themes[t].freq*0.75,0.12);
     }
@@ -193,6 +236,6 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
     this.classList.toggle('active',soundOn);
     if(soundOn){if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();beep(660);}
     });
-
+applyLang('es');
 updateModeUI(currentTheme==='abstergo');
 setTheme(currentTheme);
