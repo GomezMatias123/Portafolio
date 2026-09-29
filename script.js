@@ -15,7 +15,7 @@
     },
     {
         t:"Correlativas - LSI",tags:"HTML · CSS · JavaScript", img:"proyectos/correlativas_LSI.png",
-        repo: "https://github.com/1Hagi/correlativas_lsi", live: "https://1hagi.github.io/correlativas_lsi/plan_estudio_nuevo.html",
+        repo: "https://github.com/1Hagi/correlativas_lsi", live: "https://1hagi.github.io/correlativas_lsi/index.html",
         desc:{
             es:"Proyecto de gestión de correlativas para la carrera de Licenciatura en Sistemas de la Universidad Nacional del Nordeste.",
             en:"Course prerequisites tracking project for the Information Systems degree at the university: 'Universidad Nacional del Nordeste'."
