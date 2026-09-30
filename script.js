@@ -25,7 +25,7 @@
         t:"L&A Amplificadores Valvulares",tags:"HTML · CSS · JavaScript", img:"proyectos/lya_amplificadores.png",
         repo: "https://github.com/GomezMatias123/lya-amplificadores", live: "https://gomezmatias123.github.io/lya-amplificadores/",
         desc:{
-            es:"Diseño de un E-commerce de amplificadores artesanales para guitarra y bajo electrico. Contiene registro de productos y sistema de mensajería vinculada al Whatsapp el empredimiemto",
+            es:"Diseño de un E-commerce de amplificadores artesanales para guitarra y bajo electrico. Contiene registro de productos y sistema de mensajería vinculada al Whatsapp del empredimiemto",
             en:"Design of an e-commerce site for handcrafted electric guitar and bass amplifiers. It includes a product catalog and a messaging system linked to the business's WhatsApp."
         }
         
@@ -33,7 +33,7 @@
     {
         t:"Invitación de Boda digital",tags:"HTML · CSS · JavaScript · Firebase", img:"proyectos/invitacion_Boda.png", repo: "#", live: "https://invitacion-boda-belen-y-emilio.web.app/",
         desc:{
-            es:"Diseño de una invitacion digital para eventos (bodas, cumpleaños, entre otros). Diseño perzonalizado y posee una base de datos para una lista de invitados, donde puedan quedar registrados los que confirmen asistir al evento y los no.",
+            es:"Diseño de una invitación digital para eventos (bodas, cumpleaños, entre otros). Diseño personalizado y posee una base de datos para una lista de invitados, donde pueden quedar registrados los que confirmen asistir al evento y los que no.",
             en:"Design of a digital invitation for events (weddings, birthdays and more). Custom design, with a database for the guest list that records who confirms attendance and who declines."
         }
     },
