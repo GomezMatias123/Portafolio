@@ -250,8 +250,13 @@ html[lang="en"] .card-desc .en{ display: block; }
 }
 
 @media (max-width: 460px) {
-  .mem-formacion{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
-  .content-formacion{ position:relative;border:1px solid var(--line);background:var(--panel);
-    padding:22px;transition:transform .3s, border-color .3s; min-height:170px; gap: 10px; display:flex;flex-direction:column; justify-content:space-between 
+  .mem-formacion{grid-template-columns: minmax(0, 1fr); }
+  .content-formacion{ flex-direction: column; gap: 14px; }
+
+  .content-formacion .thumb{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 13 / 9;      /* mismo tamaño para todas (260x190 ≈ 13/9) */
+    object-fit: contain;
   }
 }
